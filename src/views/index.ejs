@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Study</title>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <%- include("./partials/header") %> <%- include("./partials/navbar") %>
+
+    <h1>Welcome!</h1>
+    <p>Lorem Ipsum dolor sit amet.</p>
+
+    <% boards.forEach((board) => { %>
+
+      <h2><%= board.name %></h2>
+      <p><%= board.description %></p>
+      <p><a href="/board/<%= board.id %>">Access</a></p>
+
+    <% }); %>
+
+    <p>Create a new <a href="/board/create/">Table</a></p>
+
+    <%- include("./partials/footer") %>
+  </body>
+</html>

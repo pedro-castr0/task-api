@@ -1,0 +1,18 @@
+<div class="task">
+  <form action="/board/update" method="post">
+    <input type="hidden" name="id" value="<%= board.id %>" />
+    <input
+      class="page-title"
+      type="text"
+      name="name"
+      value="<%= board.name %>"
+    /><br />
+    <textarea name="description"><%= board.description %></textarea><br />
+    <button class="actions" type="submit">Update</button>
+  </form>
+  <form action="/board/delete" method="post" id="update-board-form">
+    <input type="hidden" name="id" value="<%= board.id %>" />
+    <button class="actions" type="submit">Delete</button>
+  </form>
+</div>
+<br /><br />

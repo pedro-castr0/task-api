@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Board | <%= board.name %></title>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <%- include("../partials/header") %> <%- include("../partials/navbar") %>
+
+    <%- include("./update-form", { board: board }) %>
+
+    <% if (columns) { %>
+      <% columns.forEach((column) => { %>
+    
+        <%- include("../column/update-form", { column: column }) %>
+                
+        <% if (tasks) { %>
+          <% tasks.filter((task) => { %>
+            <% if (task.column == column.id ) {%>
+
+              <%- include("../task/update-form", { task: task }) %>
+
+            <% }; %>
+          <% }); %>
+        <% }; %>
+          
+        <button onclick="showForm('<%= column.id %>')">Add Task</button>
+        <div class="load-form" id="load-form-<%= column.id %>">
+          <%- include("../task/create-form", { column_id: column.id }) %>
+        </div><br><br>
+        
+      <% }); %>
+    <% }; %>
+    
+    <br><br>
+    <button onclick="showColumnForm()">Add Column</button>
+    <div id="load-column-form">
+      <%- include("../column/create-form", { board: board }) %>
+    </div>
+    
+    <br><br><br>
+    <a href="/board/<%= board.id %>/update">Edit Board</a>
+ 
+    <%- include("../partials/footer") %>
+
+    <script src="/form.js"></script>
+  </body>
+</html>

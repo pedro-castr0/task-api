@@ -1,0 +1,28 @@
+<div class="task" id="task-<%= task.id %>">
+  <form action="/task/update" method="post" id="update-task-form">
+    <input type="hidden" name="id" value="<%= task.id %>" />
+    <input type="hidden" name="column" value="<%= task.column %>" />
+
+    <input
+      class="subtitle"
+      type="text"
+      name="title"
+      value="<%= task.title %>"
+    /><br />
+    <textarea class="field" name="description"><%= task.description %></textarea
+    ><br />
+
+    <div class="actions">
+      <button type="submit">Update</button>
+    </div>
+  </form>
+
+  <form method="post">
+    <input type="hidden" name="id" value="<%= task.id %>" />
+    <input type="hidden" name="column" value="<%= task.column %>" />
+
+    <div class="actions">
+      <button type="submit">Delete</button>
+    </div>
+  </form>
+</div>

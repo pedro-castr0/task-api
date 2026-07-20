@@ -1,0 +1,47 @@
+body {
+  background-color: #181818;
+  color: #ffffff;
+}
+
+a:link {
+  color: #ff83e4;
+}
+
+a:visited {
+  color: #c051a8;
+}
+
+.load-form {
+  display: none;
+}
+
+.load-form.open {
+  display: block;
+}
+
+#load-column-form {
+  display: none;
+}
+
+#load-column-form.open {
+  display: block;
+}
+
+.actions {
+  display: none;
+}
+
+.page-title {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.subtitle {
+  font-size: 16px;
+  font-weight: bold;
+}

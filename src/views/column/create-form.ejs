@@ -1,0 +1,9 @@
+<p>Add Column</p>
+
+<form action="/column/create" method="post" id="create-column-form">
+  <input type="hidden" name="board" value="<%= board.id %>" />
+  <input type="text" name="name" /><br />
+  <button type="submit">Add</button>
+</form>
+
+<button onclick="showColumnForm()">Cancel</button>
