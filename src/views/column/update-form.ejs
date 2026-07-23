@@ -1,19 +1,39 @@
-<form
-  action="/column/update"
-  method="POST"
-  id="update-column-form-<%= column.id %>"
->
-  <input type="hidden" name="id" value="<%= column.id %>" />
-  <input type="hidden" name="board" value="<%= column.board %>" />
-  <input class="title" type="text" name="name" value="<%= column.name %>" />
-  <button class="actions" type="submit">Update</button>
-</form>
-<form
-  action="/column/delete"
-  method="POST"
-  id="delete-column-form-<%= column.id %>"
->
-  <input type="hidden" name="id" value="<%= column.id %>" />
-  <input type="hidden" name="board" value="<%= column.board %>" />
-  <button class="actions" type="submit">Delete</button>
-</form>
+<div id="column-<%= column.id %>">
+  <form
+    action="/column/update"
+    method="POST"
+    id="update-column-form-<%= column.id %>"
+  >
+    <input type="hidden" name="id" value="<%= column.id %>" />
+    <input class="title" type="text" name="name" value="<%= column.name %>" /><br />
+    
+    <button class="actions" type="submit">Update</button>
+  </form>
+  <form
+    action="/column/delete"
+    method="POST"
+    id="delete-column-form-<%= column.id %>"
+  >
+    <input type="hidden" name="id" value="<%= column.id %>" />
+    <button class="actions" type="submit">Delete</button>
+  </form><br />
+
+  <div id="task-wrapper-<%= column.id %>">
+
+    <% if (tasks) { %>
+      <% tasks.filter((task) => { %>
+        <% if (task.column == column.id ) {%>
+
+          <%- include("../task/update-form", { task: task }) %>
+
+        <% }; %>
+      <% }); %>
+    <% }; %>
+
+  </div>
+
+  <!-- <button>Add Task</button> -->
+  <div class="load-form" id="load-form-<%= column.id %>">
+    <%- include("../task/create-form", { column_id: column.id }) %>
+  </div><br />
+</div>

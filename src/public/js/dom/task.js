@@ -1,5 +1,5 @@
 export function addTask(task) {
-  const column = document.getElementById(`column-${task.column}`);
+  const column = document.getElementById(`task-wrapper-${task.column}`);
 
   const html = `
         <div class="task" id="task-${task.id}">
@@ -27,7 +27,7 @@ export function addTask(task) {
                 <div class="actions">
                     <button type="submit">Delete</button>
                 </div>
-            </form>
+            </form><br />
         </div>
     `;
 

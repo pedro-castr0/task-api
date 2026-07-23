@@ -37,7 +37,6 @@ class TaskRepository {
       create_dto.description,
       create_dto.column,
     ];
-
     const res = await client.query(sql, values);
 
     return res.rows[0];
@@ -45,12 +44,10 @@ class TaskRepository {
 
   async update(update_dto) {
     const client = await connect();
-    const sql =
-      'UPDATE task SET title = $1, description = $2 WHERE id = $3 RETURNING id, title, description, "column"';
+    const sql = "UPDATE task SET title = $1, description = $2 WHERE id = $3";
     const values = [update_dto.title, update_dto.description, update_dto.id];
-    const res = await client.query(sql, values);
 
-    return res.rows[0];
+    return await client.query(sql, values);
   }
 
   async delete(id) {

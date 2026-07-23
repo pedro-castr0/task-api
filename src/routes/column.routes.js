@@ -4,8 +4,8 @@ const columnController = require("../controllers/column.controller");
 
 router.post("/create", columnController.create);
 
-router.post("/update", columnController.update);
+router.put("/update", columnController.update);
 
-router.post("/delete", columnController.delete);
+router.delete("/delete", columnController.delete);
 
 module.exports = router;

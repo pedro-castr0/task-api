@@ -9,36 +9,20 @@
   <body>
 
     <%- include("../partials/header") %> <%- include("../partials/navbar") %>
-
     <%- include("./update-form", { board: board }) %>
-
-    <% if (columns) { %>
-      <% columns.forEach((column) => { %>
-
-        <div class="task-wrapper" id="column-<%= column.id %>">
     
+    <div id="column-wrapper">
+
+      <% if (columns) { %>
+        <% columns.forEach((column) => { %>
+          
           <%- include("../column/update-form", { column: column, tasks: tasks }) %>
+          
+        <% }); %>
+      <% }; %>
 
-          <% if (tasks) { %>
-            <% tasks.filter((task) => { %>
-              <% if (task.column == column.id ) {%>
-
-                <%- include("../task/update-form", { task: task }) %>
-
-              <% }; %>
-            <% }); %>
-          <% }; %>
-
-        </div><br />
-        <!-- <button>Add Task</button> -->
-        <div class="load-form" id="load-form-<%= column.id %>">
-          <%- include("../task/create-form", { column_id: column.id }) %>
-        </div><br><br>
-        
-      <% }); %>
-    <% }; %>
+    </div>
     
-    <br><br>
     <!-- <button>Add Column</button> -->
     <div id="load-column-form">
 
@@ -46,12 +30,12 @@
       
     </div>
     
-    <br><br><br>
     <a href="/board/<%= board.id %>/update">Edit Board</a>
  
     <%- include("../partials/footer") %>
 
     <script src="/js/form.js"></script>
     <script type="module" src="/js/task.js"></script>
+    <script type="module" src="/js/column.js"></script>
   </body>
 </html>

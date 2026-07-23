@@ -31,10 +31,12 @@ class ColumnRepository {
 
   async create(dto) {
     const client = await connect();
-    const sql = 'INSERT INTO "column"(name, board) VALUES($1, $2)';
+    const sql =
+      'INSERT INTO "column"(name, board) VALUES($1, $2) RETURNING id, name, board, position';
     const values = [dto.name, dto.board];
+    const res = await client.query(sql, values);
 
-    return await client.query(sql, values);
+    return res.rows[0];
   }
 
   async update(dto) {

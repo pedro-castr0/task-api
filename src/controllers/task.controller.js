@@ -15,7 +15,7 @@ class TaskController {
     const dto = new UpdateTaskDTO(req.body);
     const task = await taskService.update(dto);
 
-    res.status(201).json(task);
+    res.status(201);
   }
 
   async delete(req, res) {

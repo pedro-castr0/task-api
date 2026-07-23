@@ -16,7 +16,7 @@ a:visited {
 }
 
 .load-form.open {
-  display: block;
+  /* display: block; */
 }
 
 #load-column-form {
@@ -24,7 +24,7 @@ a:visited {
 }
 
 #load-column-form.open {
-  display: block;
+  /* display: block; */
 }
 
 .actions {
@@ -32,12 +32,12 @@ a:visited {
 }
 
 .page-title {
-  font-size: 22px;
+  font-size: 26px;
   font-weight: bold;
 }
 
 .title {
-  font-size: 18px;
+  font-size: 22px;
   font-weight: bold;
 }
 
