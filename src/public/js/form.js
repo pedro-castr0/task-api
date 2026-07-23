@@ -1,4 +1,4 @@
-function showForm(column_id) {
+/* function showTaskForm(column_id) {
   const div = document.getElementById(`load-form-${column_id}`);
   const isOpen = div.classList.contains("open");
 
@@ -43,3 +43,4 @@ document.querySelectorAll(".task").forEach((task) => {
     }, 0);
   });
 });
+ */

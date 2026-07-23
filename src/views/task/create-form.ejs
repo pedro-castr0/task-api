@@ -1,6 +1,6 @@
 <p>Add Task</p>
 
-<form action="/task/create" method="post" id="create-task-form">
+<form method="post" id="create-task-form-<%= column_id %>">
   <input type="hidden" name="column" value="<%= column_id %>" />
   <label for="title">Task title:</label><br />
   <input type="text" name="title" /><br />
@@ -9,5 +9,5 @@
   <button type="submit">Add</button>
 </form>
 
-<button onclick="showForm('<%= column_id %>')">Cancel</button>
+<button onclick="">Cancel</button>
 <br />

@@ -12,9 +12,10 @@ class ColumnRepository {
 
   async getAll(board_id) {
     const client = await connect();
-    const res = await client.query('SELECT * FROM "column" WHERE board = $1', [
-      board_id,
-    ]);
+    const res = await client.query(
+      'SELECT * FROM "column" WHERE board = $1 ORDER BY id',
+      [board_id],
+    );
 
     return res.rows;
   }

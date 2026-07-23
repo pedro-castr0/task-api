@@ -4,29 +4,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Board | <%= board.name %></title>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/css/style.css">
   </head>
   <body>
+
     <%- include("../partials/header") %> <%- include("../partials/navbar") %>
 
     <%- include("./update-form", { board: board }) %>
 
     <% if (columns) { %>
       <% columns.forEach((column) => { %>
+
+        <div class="task-wrapper" id="column-<%= column.id %>">
     
-        <%- include("../column/update-form", { column: column }) %>
-                
-        <% if (tasks) { %>
-          <% tasks.filter((task) => { %>
-            <% if (task.column == column.id ) {%>
+          <%- include("../column/update-form", { column: column, tasks: tasks }) %>
 
-              <%- include("../task/update-form", { task: task }) %>
+          <% if (tasks) { %>
+            <% tasks.filter((task) => { %>
+              <% if (task.column == column.id ) {%>
 
-            <% }; %>
-          <% }); %>
-        <% }; %>
-          
-        <button onclick="showForm('<%= column.id %>')">Add Task</button>
+                <%- include("../task/update-form", { task: task }) %>
+
+              <% }; %>
+            <% }); %>
+          <% }; %>
+
+        </div><br />
+        <!-- <button>Add Task</button> -->
         <div class="load-form" id="load-form-<%= column.id %>">
           <%- include("../task/create-form", { column_id: column.id }) %>
         </div><br><br>
@@ -35,9 +39,11 @@
     <% }; %>
     
     <br><br>
-    <button onclick="showColumnForm()">Add Column</button>
+    <!-- <button>Add Column</button> -->
     <div id="load-column-form">
+
       <%- include("../column/create-form", { board: board }) %>
+      
     </div>
     
     <br><br><br>
@@ -45,6 +51,7 @@
  
     <%- include("../partials/footer") %>
 
-    <script src="/form.js"></script>
+    <script src="/js/form.js"></script>
+    <script type="module" src="/js/task.js"></script>
   </body>
 </html>

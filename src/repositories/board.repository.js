@@ -10,7 +10,7 @@ class BoardRepository {
 
   async getAll() {
     const client = await connect();
-    const res = await client.query("SELECT * FROM board");
+    const res = await client.query("SELECT * FROM board ORDER BY id");
 
     return res.rows;
   }

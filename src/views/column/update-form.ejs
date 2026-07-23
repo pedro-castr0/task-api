@@ -1,14 +1,19 @@
-<div class="task" id="column-<%= column.id %>">
-  <form action="/column/update" method="post" id="update-column-form">
-    <input type="hidden" name="id" value="<%= column.id %>" />
-    <input type="hidden" name="board" value="<%= column.board %>" />
-    <input class="title" type="text" name="name" value="<%= column.name %>" />
-    <button class="actions" type="submit">Update</button>
-  </form>
-  <form action="/column/delete" method="POST">
-    <input type="hidden" name="id" value="<%= column.id %>" />
-    <input type="hidden" name="board" value="<%= column.board %>" />
-    <button class="actions" type="submit">Delete</button>
-  </form>
-</div>
-<br />
+<form
+  action="/column/update"
+  method="POST"
+  id="update-column-form-<%= column.id %>"
+>
+  <input type="hidden" name="id" value="<%= column.id %>" />
+  <input type="hidden" name="board" value="<%= column.board %>" />
+  <input class="title" type="text" name="name" value="<%= column.name %>" />
+  <button class="actions" type="submit">Update</button>
+</form>
+<form
+  action="/column/delete"
+  method="POST"
+  id="delete-column-form-<%= column.id %>"
+>
+  <input type="hidden" name="id" value="<%= column.id %>" />
+  <input type="hidden" name="board" value="<%= column.board %>" />
+  <button class="actions" type="submit">Delete</button>
+</form>

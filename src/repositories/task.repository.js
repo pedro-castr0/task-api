@@ -10,9 +10,10 @@ class TaskRepository {
 
   async getAll(column_id) {
     const client = await connect();
-    const res = await client.query('SELECT * FROM task WHERE "column" = $1', [
-      column_id,
-    ]);
+    const res = await client.query(
+      'SELECT * FROM task WHERE "column" = $1 ORDER BY id',
+      [column_id],
+    );
 
     return res.rows;
   }
@@ -20,7 +21,7 @@ class TaskRepository {
   async getAllByColumns(columns_ids) {
     const client = await connect();
     const res = await client.query(
-      'SELECT * FROM task WHERE "column" = ANY($1)',
+      'SELECT * FROM task WHERE "column" = ANY($1) ORDER BY id',
       [columns_ids],
     );
 
@@ -30,22 +31,26 @@ class TaskRepository {
   async create(create_dto) {
     const client = await connect();
     const sql =
-      'INSERT INTO task(title, description, "column") VALUES($1, $2, $3);';
+      'INSERT INTO task(title, description, "column") VALUES($1, $2, $3) RETURNING id, title, description, "column"';
     const values = [
       create_dto.title,
       create_dto.description,
       create_dto.column,
     ];
 
-    return await client.query(sql, values);
+    const res = await client.query(sql, values);
+
+    return res.rows[0];
   }
 
   async update(update_dto) {
     const client = await connect();
-    const sql = "UPDATE task SET title = $1, description = $2 WHERE id = $3";
+    const sql =
+      'UPDATE task SET title = $1, description = $2 WHERE id = $3 RETURNING id, title, description, "column"';
     const values = [update_dto.title, update_dto.description, update_dto.id];
+    const res = await client.query(sql, values);
 
-    return await client.query(sql, values);
+    return res.rows[0];
   }
 
   async delete(id) {

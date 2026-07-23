@@ -12,7 +12,7 @@ a:visited {
 }
 
 .load-form {
-  display: none;
+  /* display: none; */
 }
 
 .load-form.open {
@@ -20,7 +20,7 @@ a:visited {
 }
 
 #load-column-form {
-  display: none;
+  /* display: none; */
 }
 
 #load-column-form.open {
@@ -28,7 +28,7 @@ a:visited {
 }
 
 .actions {
-  display: none;
+  /* display: none; */
 }
 
 .page-title {

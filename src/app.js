@@ -22,7 +22,8 @@ app.listen(port, "localhost", (err) => {
 });
 
 app.use(express.static("src/public"));
-app.use(express.urlencoded());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(morgan("dev"));
 
 app.use("/board", boardRoutes);
