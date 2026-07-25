@@ -7,9 +7,7 @@ export async function createColumn(data) {
 }
 
 export async function updateColumn(data) {
-  const response = await axios.put("/column/update", data);
-
-  return response.data;
+  return await axios.put("/column/update", data);
 }
 
 export async function deleteColumn(data) {

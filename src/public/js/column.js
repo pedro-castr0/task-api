@@ -16,7 +16,7 @@ document.addEventListener("submit", async (event) => {
       break;
 
     case target.matches('[id^="update-column-form-"]'):
-      updateColumn(data);
+      await updateColumn(data);
       break;
 
     case target.matches('[id^="delete-column-form-"]'):

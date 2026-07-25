@@ -18,11 +18,11 @@ class BoardRepository {
   async create(dto) {
     const client = await connect();
     const sql =
-      "INSERT INTO board(name, description) VALUES($1, $2) RETURNING id";
+      "INSERT INTO board(name, description) VALUES($1, $2) RETURNING id, name, description";
     const values = [dto.name, dto.description];
     const res = await client.query(sql, values);
 
-    return res.rows[0].id;
+    return res.rows[0];
   }
 
   async update(dto) {

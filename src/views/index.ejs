@@ -3,25 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Study</title>
+    <title>Home page</title>
     <link rel="stylesheet" href="/css/style.css">
   </head>
   <body>
+
     <%- include("./partials/header") %> <%- include("./partials/navbar") %>
 
     <h1>Welcome!</h1>
     <p>Lorem Ipsum dolor sit amet.</p>
 
-    <% boards.forEach((board) => { %>
+    <div id="board-wrapper">
 
-      <h2><%= board.name %></h2>
-      <p><%= board.description %></p>
-      <p><a href="/board/<%= board.id %>">Access</a></p>
+      <% boards.forEach((board) => { %>
 
-    <% }); %>
+        <%- include("./board/update-form", { board: board }) %>
 
-    <p>Create a new <a href="/board/create/">Table</a></p>
+      <% }); %>
+
+    </div>
+
+    <%- include("./board/create-form") %>
 
     <%- include("./partials/footer") %>
+
+    <script type="module" src="/js/board.js"></script>
   </body>
 </html>

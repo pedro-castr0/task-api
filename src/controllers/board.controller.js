@@ -7,9 +7,9 @@ const UpdateBoardDTO = require("../dto/update-board.dto");
 class BoardController {
   async create(req, res) {
     const dto = new CreateBoardDTO(req.body);
-    const id = await boardService.create(dto);
+    const board = await boardService.create(dto);
 
-    res.redirect(`/board/${id}`);
+    res.status(201).json(board);
   }
 
   async read(req, res) {
@@ -33,21 +33,16 @@ class BoardController {
 
   async update(req, res) {
     const dto = new UpdateBoardDTO(req.body);
-    const id = dto.id;
     await boardService.update(dto);
 
-    res.redirect(`/board/${id}`);
+    res.sendStatus(201);
   }
 
   async delete(req, res) {
     const id = req.body.id;
     await boardService.delete(id);
 
-    res.redirect("/");
-  }
-
-  async createForm(req, res) {
-    res.render("board/create-form");
+    res.sendStatus(204);
   }
 }
 

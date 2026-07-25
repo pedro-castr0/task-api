@@ -7,9 +7,7 @@ export async function createTask(data) {
 }
 
 export async function updateTask(data) {
-  const response = await axios.put("/task/update", data);
-
-  return response.data;
+  return await axios.put("/task/update", data);
 }
 
 export async function deleteTask(data) {

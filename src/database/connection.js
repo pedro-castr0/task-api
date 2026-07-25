@@ -7,10 +7,6 @@ async function connect() {
   });
 
   const client = await pool.connect();
-  console.log("Connected!");
-
-  const res = await client.query("select now()");
-  console.log(res.rows[0]);
   client.release();
 
   global.connection = pool;
