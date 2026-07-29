@@ -22,6 +22,8 @@ app.listen(port, "localhost", (err) => {
 });
 
 app.use(express.static("src/public"));
+app.use("/bootstrap", express.static("node_modules/bootstrap/dist"));
+app.use("/bootstrap-icons", express.static("node_modules/bootstrap-icons"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan("dev"));

@@ -1,22 +1,46 @@
-<div id="board-<%= board.id %>">
-  <form method="POST" id="update-board-form-<%= board.id %>">
-    <input type="hidden" name="id" value="<%= board.id %>" />
-    <input
-      class="page-title"
-      type="text"
-      name="name"
-      value="<%= board.name %>"
-    /><br />
-    <textarea name="description"><%= board.description %></textarea><br />
+<div class="col" id="board-<%= board.id %>">
+  <div class="card p-3">
+    <div class="d-grid gap-3">
+      <div class="forms">
+        <form method="POST" id="update-board-form-<%= board.id %>">
+          <input type="hidden" name="id" value="<%= board.id %>" />
 
-    <button class="actions" type="submit">Update</button>
-  </form>
+          <div class="mb-3">
+            <input
+              class="form-control form-control-lg fw-bold"
+              type="text"
+              name="name"
+              value="<%= board.name %>"
+            />
+          </div>
+          <textarea class="form-control" name="description">
+<%= board.description %></textarea
+          >
+        </form>
 
-  <form method="POST" id="delete-board-form-<%= board.id %>">
-    <input type="hidden" name="id" value="<%= board.id %>" />
+        <form method="POST" id="delete-board-form-<%= board.id %>">
+          <input type="hidden" name="id" value="<%= board.id %>" />
+        </form>
+      </div>
 
-    <button class="actions" type="submit">Delete</button>
-  </form>
+      <div class="actions">
+        <button
+          class="btn btn-dark border btn-sm me-2"
+          type="submit"
+          form="update-board-form-<%= board.id %>"
+        >
+          Update
+        </button>
+        <button
+          class="btn btn-danger btn-sm"
+          type="submit"
+          form="delete-board-form-<%= board.id %>"
+        >
+          <i class="bi bi-trash-fill"></i>
+        </button>
+      </div>
 
-  <p><a href="/board/<%= board.id %>">Access</a></p>
+      <a class="btn btn-light btn-sm" href="/board/<%= board.id %>">Access</a>
+    </div>
+  </div>
 </div>

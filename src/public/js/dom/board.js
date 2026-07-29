@@ -36,6 +36,9 @@ export function updateBoardTitle(value) {
 
 export function removeBoard(id) {
   const board = document.getElementById(`board-${id}`);
-
   board.remove();
+
+  if (window.location.pathname != "/") {
+    console.log(window.location);
+  }
 }

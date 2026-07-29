@@ -22,7 +22,6 @@ document.addEventListener("submit", async (event) => {
 
     case target.matches('[id^="delete-board-form-"]'):
       await deleteBoard(data);
-      window.location.replace("/");
       removeBoard(data.id);
       break;
   }

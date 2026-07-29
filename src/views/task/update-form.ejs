@@ -1,28 +1,45 @@
-<div class="task" id="task-<%= task.id %>">
-  <form method="post" id="update-task-form-<%= task.id  %>">
-    <input type="hidden" name="id" value="<%= task.id %>" />
-    <input type="hidden" name="column" value="<%= task.column %>" />
+<div id="task-<%= task.id %>">
+  <div class="card p-3">
+    <div class="d-grid gap-3">
+      <div class="forms">
+        <form method="post" id="update-task-form-<%= task.id  %>">
+          <input type="hidden" name="id" value="<%= task.id %>" />
+          <input type="hidden" name="column" value="<%= task.column %>" />
 
-    <input
-      class="subtitle"
-      type="text"
-      name="title"
-      value="<%= task.title %>"
-    /><br />
-    <textarea class="field" name="description"><%= task.description %></textarea
-    ><br />
+          <div class="mb-3">
+            <input
+              class="form-control fw-bold"
+              type="text"
+              name="title"
+              value="<%= task.title %>"
+            />
+          </div>
+          <textarea class="form-control" name="description">
+<%= task.description %></textarea
+          >
+        </form>
 
-    <div class="actions">
-      <button type="submit">Update</button>
+        <form method="post" id="delete-task-form-<%= task.id %>">
+          <input type="hidden" name="id" value="<%= task.id %>" />
+        </form>
+      </div>
+
+      <div class="actions">
+        <button
+          class="btn btn-dark btn-sm border me-2"
+          form="update-task-form-<%= task.id %>"
+          type="submit"
+        >
+          Update
+        </button>
+        <button
+          class="btn btn-danger btn-sm"
+          form="delete-task-form-<%= task.id %>"
+          type="submit"
+        >
+          <i class="bi bi-trash-fill"></i>
+        </button>
+      </div>
     </div>
-  </form>
-
-  <form method="post" id="delete-task-form-<%= task.id %>">
-    <input type="hidden" name="id" value="<%= task.id %>" />
-
-    <div class="actions">
-      <button type="submit">Delete</button>
-    </div>
-  </form>
-  <br />
+  </div>
 </div>

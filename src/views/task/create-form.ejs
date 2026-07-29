@@ -1,12 +1,26 @@
-<p>Add Task</p>
+<div class="card">
+  <div class="card-header">
+    <h5 class="mb-0">Add Task</h5>
+  </div>
+  <div class="card-body">
+    <form method="post" id="create-task-form-<%= column_id %>">
+      <input type="hidden" name="column" value="<%= column_id %>" />
 
-<form method="post" id="create-task-form-<%= column_id %>">
-  <input type="hidden" name="column" value="<%= column_id %>" />
-  <label for="title">Task title:</label><br />
-  <input type="text" name="title" /><br />
-  <label for="title">Task description:</label><br />
-  <textarea name="description"></textarea><br />
-  <button type="submit">Add</button>
-</form>
+      <label class="form-label" for="title">Task title:</label>
+      <input class="form-control fw-bold" type="text" name="title" />
+      <label class="form-label" for="title">Task description:</label>
+      <textarea class="form-control" name="description"></textarea>
+    </form>
 
-<button onclick="">Cancel</button>
+    <div class="actions mt-3">
+      <button
+        class="btn btn-light btn-sm me-2"
+        form="create-task-form-<%= column_id %>"
+        type="submit"
+      >
+        Add
+      </button>
+      <button class="btn btn-dark btn-sm border">Cancel</button>
+    </div>
+  </div>
+</div>

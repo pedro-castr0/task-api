@@ -4,29 +4,41 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home page</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <!-- <link rel="stylesheet" href="/css/style.css" /> -->
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/bootstrap-icons/font/bootstrap-icons.css"" />
   </head>
-  <body>
+  <body class="bg-dark" data-bs-theme="dark">
 
     <%- include("./partials/header") %> <%- include("./partials/navbar") %>
 
     <h1>Welcome!</h1>
     <p>Lorem Ipsum dolor sit amet.</p>
 
-    <div id="board-wrapper">
+    <div class="container-fluid" id="board-wrapper">
+      <div class="row row-cols-2 row-cols-lg-4 g-3 g-lg-3">
 
-      <% boards.forEach((board) => { %>
+        <% boards.forEach((board) => { %>
 
-        <%- include("./board/update-form", { board: board }) %>
+            <%- include("./board/update-form", { board: board }) %>
 
-      <% }); %>
+        <% }); %>
 
+        <div class="col d-grid">
+          <a class="btn btn-dark border d-flex justify-content-center align-items-center">
+            <span class="text-secondary-emphasis"><i class="bi bi-plus-lg"></i> New board</span>
+          </a>
+        </div>
+      </div>
+      <hr>
+      <div id="create-board-form">
+        <%- include("./board/create-form") %>
+      </div>
     </div>
-
-    <%- include("./board/create-form") %>
 
     <%- include("./partials/footer") %>
 
     <script type="module" src="/js/board.js"></script>
+    <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

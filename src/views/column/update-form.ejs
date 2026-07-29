@@ -1,38 +1,46 @@
-<div id="column-<%= column.id %>">
-  <form
-    action="/column/update"
-    method="POST"
-    id="update-column-form-<%= column.id %>"
-  >
-    <input type="hidden" name="id" value="<%= column.id %>" />
-    <input class="title" type="text" name="name" value="<%= column.name %>" /><br />
-    
-    <button class="actions" type="submit">Update</button>
-  </form>
-  <form
-    action="/column/delete"
-    method="POST"
-    id="delete-column-form-<%= column.id %>"
-  >
-    <input type="hidden" name="id" value="<%= column.id %>" />
-    <button class="actions" type="submit">Delete</button>
-  </form><br />
+<div style="width: 300px;" id="column-<%= column.id %>">
+  <div class="forms mb-2">
+    <form action="/column/update" method="POST" id="update-column-form-<%= column.id %>">
+      <input type="hidden" name="id" value="<%= column.id %>" />
+      <input class="form-control form-control-lg fw-bold" type="text" name="name" value="<%= column.name %>" />
+    </form>
 
-  <div id="task-wrapper-<%= column.id %>">
+    <form action="/column/delete" method="POST" id="delete-column-form-<%= column.id %>">
+      <input type="hidden" name="id" value="<%= column.id %>" />
+    </form>
+  </div>
+
+  <div class="actions">
+    <button class="btn btn-dark border btn-sm me-2" form="update-column-form-<%= column.id %>" type="submit">Update</button>
+    <button class="btn btn-danger btn-sm" form="delete-column-form-<%= column.id %>" type="submit">
+      <i class="bi bi-trash-fill"></i>
+    </button>
+  </div><hr />
+
+  <div class="container px-0" id="task-wrapper-<%= column.id %>">
 
     <% if (tasks) { %>
       <% tasks.filter((task) => { %>
         <% if (task.column == column.id ) {%>
 
-          <%- include("../task/update-form", { task: task }) %>
+          <div class="mb-3">
+            <%- include("../task/update-form", { task: task }) %>
+          </div>
 
         <% }; %>
       <% }); %>
     <% }; %>
 
+  </div><hr />
+
+  <div class="d-grid my-3">
+    <button class="btn btn-dark border">
+      <span class="text-secondary-emphasis"
+        ><i class="bi bi-plus-lg"></i> New task</span
+      >
+    </button>
   </div>
 
-  <!-- <button>Add Task</button> -->
   <div class="load-form" id="load-form-<%= column.id %>">
     <%- include("../task/create-form", { column_id: column.id }) %>
   </div><br />

@@ -1,9 +1,22 @@
-<p>Add Column</p>
+<div class="card">
+  <div class="card-header">
+    <h5 class="p-0">Add Column</h5>
+  </div>
+  <div class="card-body">
+    <form action="/column/create" method="post" id="create-column-form">
+      <input type="hidden" name="board" value="<%= board.id %>" />
+      <input class="form-control form-control-lg" type="text" name="name" />
+    </form>
 
-<form action="/column/create" method="post" id="create-column-form">
-  <input type="hidden" name="board" value="<%= board.id %>" />
-  <input type="text" name="name" /><br />
-  <button type="submit">Add</button>
-</form>
-
-<button onclick="">Cancel</button><br />
+    <div class="actions mt-3">
+      <button
+        class="btn btn-light btn-sm me-2"
+        form="create-column-form"
+        type="submit"
+      >
+        Add
+      </button>
+      <button class="btn btn-dark border btn-sm" onclick="">Cancel</button>
+    </div>
+  </div>
+</div>

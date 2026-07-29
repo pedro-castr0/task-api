@@ -4,31 +4,47 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Board | <%= board.name %></title>
-    <link rel="stylesheet" href="/css/style.css">
+    <!-- <link rel="stylesheet" href="/css/style.css"> -->
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/bootstrap-icons/font/bootstrap-icons.css"" />
   </head>
-  <body>
+  <body class="bg-dark" data-bs-theme="dark">
+    <div class="container-fluid" id="board-wrapper">
 
-    <%- include("../partials/header") %> <%- include("../partials/navbar") %>
-    <%- include("./update-form", { board: board }) %>
-    
-    <div id="column-wrapper">
+      <%- include("../partials/header") %> <%- include("../partials/navbar") %>
 
-      <% if (columns) { %>
-        <% columns.forEach((column) => { %>
-          
-          <%- include("../column/update-form", { column: column, tasks: tasks }) %>
-          
-        <% }); %>
-      <% }; %>
+      <div style="width: 18rem;">
 
+        <%- include("./update-form", { board: board }) %>
+
+      </div>
+      <div class="p-3">
+
+        <% if (columns) { %>
+
+          <div class="row flex-nowrap overflow-x-auto">
+
+            <% columns.forEach((column) => { %>
+
+                <%- include("../column/update-form", { column: column, tasks: tasks }) %>
+
+            <% }); %>
+
+            <div style="width: 300px;">
+              <div id="load-column-form">
+
+                <%- include("../column/create-form", { board: board }) %>
+                
+              </div>
+            </div>
+          </div>
+
+        <% }; %>
+
+      </div>
     </div>
-    
+
     <!-- <button>Add Column</button> -->
-    <div id="load-column-form">
-
-      <%- include("../column/create-form", { board: board }) %>
-      
-    </div>
  
     <%- include("../partials/footer") %>
 
@@ -36,5 +52,6 @@
     <script type="module" src="/js/task.js"></script>
     <script type="module" src="/js/column.js"></script>
     <script type="module" src="/js/board.js"></script>
+    <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
