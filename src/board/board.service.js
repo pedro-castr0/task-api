@@ -1,4 +1,4 @@
-const boardRepository = require("../repositories/board.repository");
+const boardRepository = require("./board.repository");
 
 class BoardService {
   async get(id) {

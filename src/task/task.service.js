@@ -1,4 +1,4 @@
-const taskRepository = require("../repositories/task.repository");
+const taskRepository = require("./task.repository");
 
 class TaskService {
   async get(id) {

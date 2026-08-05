@@ -1,4 +1,4 @@
-const columnRepository = require("../repositories/column.repository");
+const columnRepository = require("./column.repository");
 
 class ColumnService {
   async get(id) {

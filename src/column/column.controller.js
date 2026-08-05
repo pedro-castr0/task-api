@@ -1,6 +1,6 @@
-const CreateColumnDTO = require("../dto/create-column.dto");
-const UpdateColumnDTO = require("../dto/update-column.dto");
-const columnService = require("../services/column.service");
+const CreateColumnDTO = require("./dto/create-column.dto");
+const UpdateColumnDTO = require("./dto/update-column.dto");
+const columnService = require("./column.service");
 
 class ColumnController {
   async create(req, res) {

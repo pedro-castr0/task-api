@@ -1,7 +1,7 @@
-const taskService = require("../services/task.service");
-const columnService = require("../services/column.service");
-const CreateTaskDTO = require("../dto/create-task.dto");
-const UpdateTaskDTO = require("../dto/update-task.dto");
+const taskService = require("./task.service");
+const columnService = require("../column/column.service");
+const CreateTaskDTO = require("./dto/create-task.dto");
+const UpdateTaskDTO = require("./dto/update-task.dto");
 
 class TaskController {
   async create(req, res) {

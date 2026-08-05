@@ -1,8 +1,8 @@
-const boardService = require("../services/board.service");
-const columnService = require("../services/column.service");
-const taskService = require("../services/task.service");
-const CreateBoardDTO = require("../dto/create-board.dto");
-const UpdateBoardDTO = require("../dto/update-board.dto");
+const boardService = require("./board.service");
+const columnService = require("../column/column.service");
+const taskService = require("../task/task.service");
+const CreateBoardDTO = require("./dto/create-board.dto");
+const UpdateBoardDTO = require("./dto/update-board.dto");
 
 class BoardController {
   async create(req, res) {

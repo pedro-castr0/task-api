@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const columnController = require("../controllers/column.controller");
+const columnController = require("./column.controller");
 
 router.post("/create", columnController.create);
 

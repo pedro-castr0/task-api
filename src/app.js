@@ -3,10 +3,10 @@ const morgan = require("morgan");
 const path = require("path");
 require("dotenv").config();
 
-const boardRoutes = require("./routes/board.routes");
-const columnRoutes = require("./routes/column.routes");
-const taskRoutes = require("./routes/task.routes");
-const boardServices = require("./services/board.service");
+const boardRoutes = require("./board/board.routes");
+const boardServices = require("./board/board.service");
+const columnRoutes = require("./column/column.routes");
+const taskRoutes = require("./task/task.routes");
 
 const port = process.env.PORT;
 const db = require("./database/connection");
